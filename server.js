@@ -19,6 +19,7 @@ var io = socketio.listen(server);
 //
 //
 //
+var bodyParser   = require('body-parser');
 var cookieParser = require('cookie-parser');
 
 var messages = [];

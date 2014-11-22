@@ -5,7 +5,9 @@ var userSchema = Schema({
 	username : 'string',
 	lastname : 'string',
 	email	 : 'string',
-	password : 'string'
+	password : 'string',
+	photo	 : 'string',
+	friends  :[]
 });
 
 var User = models.model('User', userSchema);

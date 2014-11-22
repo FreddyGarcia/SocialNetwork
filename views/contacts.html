@@ -1,0 +1,63 @@
+
+<html>
+  <head>
+    <title>Node Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/contacts.css"/>
+  </head>
+</head>
+  <body>
+     <div class="row">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading c-list">
+                    <span class="title">Contacts</span>
+                    <ul class="pull-right c-controls">
+                        <li><a href="#cant-do-all-the-work-for-you" data-toggle="tooltip" data-placement="top" title="Add Contact"><i class="glyphicon glyphicon-plus"></i></a></li>
+                        <li><a href="#" class="hide-search" data-command="toggle-search" data-toggle="tooltip" data-placement="top" title="Toggle Search"><i class="fa fa-ellipsis-v"></i></a></li>
+                    </ul>
+                </div>
+                
+                <div class="row" style="display: none;">
+                    <div class="col-xs-12">
+                        <div class="input-group c-search">
+                            <input type="text" class="form-control" id="contact-list-search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="list-group" id="contact-list">
+                    {% for friend in friends %}
+                        <li class="list-group-item">
+                            <div class="col-xs-4 col-sm-3">
+                                <img src="/img/{{friend.photo}}" alt="Scott Stevens" class="img-responsive img-circle" />
+                            </div>
+                            <div class="col-xs-8 col-sm-9">
+                                <span class="name">{{friend.username}}</span><br/>
+                                <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
+                                <!-- <span class="visible-xs"> <span class="text-muted">5842 Hillcrest Rd</span><br/></span> -->
+                                <span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
+                                <!-- <span class="visible-xs"> <span class="text-muted">(870) 288-4149</span><br/></span> -->
+                                <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="{{friend.email}}"></span>
+                                <!-- <span class="visible-xs"> <span class="text-muted">scott.stevens@example.com</span><br/></span> -->
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    {% endfor %}
+               
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  <script src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.searchable-1.0.0.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/contacts.js"></script>
+</html>

@@ -1,8 +1,8 @@
 var passport   = require('passport');
 var path 	   = require('path');
 var session    = require('express-session');
-var flash      = require('connect-flash');
 
+var flash 	= require('connect-flash');
 var User    = require('./models/user');
 var swig	= require('swig');
 
@@ -15,18 +15,21 @@ var config = function (app, express) {
 
 	// required for passport
 	app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
-	app.use(flash({ locals: 'flash' }));
 	app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions
+
+	// flash configuration
+	app.use(flash());
+
 
 	// locations static content
 	app.engine('html', swig.renderFile)
 	app.set('view engine', 'html');
 	app.set('views', __dirname + '/views');
 
-	// flash config
 
 	// passport config
+
 	passport.serializeUser(function (user, done) {
 		done(null, user);
 	});

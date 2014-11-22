@@ -1,0 +1,83 @@
+
+<html>
+  <head>
+    <title>Node Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/profile.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+  </head>
+</head>
+  <body>
+    <div class="container">
+      <div class="row">
+<!--       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+           <A href="edit.html" >Edit Profile</A>
+
+        
+        <br>
+        <p class=" text-info">May 05,2014,03:00 pm </p>
+      </div>-->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><p class="text-left">{{user.username}}</p><p class="float-right">Logout</p></h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="/img/34.jpg" class="img-circle"> </div>
+                    <div class=" col-md-9 col-lg-9 efecto-barra"> 
+                      <table class="table table-user-information">
+                        <tbody>
+                          <tr>
+                            <td>Department:</td>
+                            <td>Programming</td>
+                          </tr>
+                          <tr>
+                            <td>Hire date:</td>
+                            <td>06/23/2013</td>
+                          </tr>
+                          <tr>
+                            <td>Date of Birth</td>
+                            <td>01/24/1988</td>
+                          </tr>
+                           <tr>
+                              <td>Gender</td>
+                              <td>Male</td>
+                          </tr> 
+                          <tr>
+                            <td>Email</td>
+                            <td><a href="mailto:info@support.com">info@support.com</a></td>
+                          </tr>
+                          <tr>
+                            <td>Phone Number</td>
+                            <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      <!-- <a href="#" class="btn btn-primary">My Sales Performance</a> -->
+                      <!-- <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
+                    </div>
+              </div>
+            </div>
+
+           <div class="panel-footer">
+                <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                <span class="pull-right">
+                    <a href="#" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                </span>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/profile.js"></script>
+</html>

@@ -2,6 +2,7 @@ var User 	 = require('./models/user'),
 	Chat 	 = require('./models/chat'),
 	passport = require('passport');
 
+
 var routes = function (app) {
 
 	// collections
@@ -56,45 +57,70 @@ var routes = function (app) {
 	// get
 
 	app.get('/', isntLoggedIn, function (req, res){
-		console.log("paso por qu");
 		res.render('index', { username : req.session.username});
 	})
 
 	app.get('/chat', isntLoggedIn, function (req, res){
-		res.render('chat');
+		res.render('chatAlternativo');
 	})
 
-	app.get('/findfriend/:friendname', function (req, res) {
-		res.render('findfriend', { friendname : req.params.friendname});
+	app.get('/profile', isntLoggedIn, function (req, res){
+		res.render('profile', { user : req.session.passport.user});
+	})
+
+	app.get('/contacts', isntLoggedIn, function (req, res){
+		User.find({_id : { $in : req.user.friends }}, function (err, data) {
+		res.render('contacts', { friends : data });
+		})
 	})
 
 	app.get('/login', isLoggedIn, function (req, res){
-		
-		res.render('login', { message : req.flash('message', "sd")});
+		res.render('login', {message : req.flash('error')});
 	})
 
-	app.get('/flash', function (req, res){
-	  req.flash('info', 'Hi there! ')
-	  res.render('flash', { message: req.flash('info') });
+	app.get('/signup', function (req, res){
+		res.render('signup');
 	})
 
 	app.get('/logout', function (req, res) {
-		req.logout();
+		if (req.isAuthenticated()) {
+			req.logout();
+		};
 		res.redirect('/');
 	})
+
+
+
+// var mongojs = require('mongojs');
+// var db = mongojs('mongodb://localhost/test', ['test'] );
+// var u = db.collection('users');
+
+app.get('/prueba', function (req, res) {
+	// a.push(mongojs.ObjectId("546dec227c45e13033e19ecd"));
+	// a.push(mongojs.ObjectId("546df8702f251edc38da8c13"));
+	var amigos = req.user.friends;
+	// u.find({ _id : {$in : req.user.friends} }, function (err, data) {
+	// u.find({_id : mongojs.ObjectId("546e668de8537e701ef34d04")}).forEach(function (err, data) {
+	// u.find({'_id' : { $in : req.user.toJSON().friends}}).forEach(function (err, data) {
+	User.find({_id : { $in : amigos }}, function (err, data) {
+		// a.push(data);
+		console.log(data);
+	})
+		res.send('xD');
+})
 
 	// #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### 
 	//	post
 
 
 	app.post('/login', passport.authenticate('login', {
-		successRedirect : '/',
+		successRedirect : '/contacts',
 		failureRedirect : '/login',
 		failureFlash	: true
 	}))
 
 	app.post('/signup', passport.authenticate('signup', {
-		successRedirect : '/',
+		successRedirect : '/contacts',
 		failureRedirect : '/login',
 		failureFlash	: true
 	}))

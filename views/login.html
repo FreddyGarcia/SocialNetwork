@@ -3,8 +3,9 @@
   <head>
     <title>Node Authentication</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/normalize.css"/>
     <link rel="stylesheet" href="/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.dialog.min.css">
     <link rel="stylesheet" href="/css/Login.css"/>
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
   </head>
@@ -20,7 +21,7 @@
               </a>
 
               <div class="form-group">
-                <input type="text" class="form-control" name="username" id="loginEmail" placeholder="Email address" required autofocus>
+                <input type="email" class="form-control" name="email" id="loginEmail" placeholder="Email address" required autofocus>
               </div>
               
               <div class="form-group">
@@ -54,31 +55,23 @@
           </form>
         </div> <!-- /container -->
   </div>
-
-  <script src="/socket.io/socket.io.js"></script>
+  </body>
   <script src="/js/jquery.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/bootstrap-dialog.min.js"></script>
+  <script src="/js/run_prettify.js"></script>
+  <script src="/js/bootstrap.dialog.min.js"></script>
   <script src="/js/3dfuntionality.js"></script>
-  <script>
+  <script type="text/javascript">
     $(document).on('ready', main);
-    
+        
     function main() {
-      var socket = io.connect();
-
-      {% if message %}
-                BootstrapDialog.show({
+      {% if message.length > 0 %}
+            BootstrapDialog.show({
             title: 'Error',
-            message: {{ req.flash('message') }}
+            message: '{{message}}'
         }).setType(BootstrapDialog.TYPE_DANGER);
+
       {% endif %}
-
-      socket.on('connect', function() {
-        console.log("Conectado");
-        socket.emit('loggin', { username : "Freddier"});
-      });
-
     }
   </script>
-  </body>
 </html>
