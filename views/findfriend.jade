@@ -1,0 +1,35 @@
+html
+  head
+    title Node Authentication
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    //
+       load bootstrap css 
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css')
+    //
+       load fontawesome 
+    style
+      body        { padding-top: 180px; }
+  body
+    .container
+      .col-sm-4
+        h1
+          span.fa.fa-sign-in
+          | Amigos
+        fieldset
+          legend
+            |sds
+          .form-group
+            input.form-control
+
+          button.btn.btn-warning.btn-lg(type='submit') Registrate!
+        hr
+        p
+          | Tienes una cuenta?
+          a(href='/login') Has Login
+        p
+          | Ve a la papassgina de inicio
+          a(href='/') Inicio
+          | .
+  script(src='/socket.io/socket.io.js')
+  script(src='/js/jquery.min.js')
+  script(src='/js/bootstrap.min.js')

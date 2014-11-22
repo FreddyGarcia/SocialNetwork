@@ -1,0 +1,84 @@
+
+<html>
+  <head>
+    <title>Node Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-dialog.min.css"/>
+    <link rel="stylesheet" href="/css/Login.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+  </head>
+</head>
+  <body>
+  <div class="row">
+      <div class="container" id="formContainer">
+
+          <form class="form-signin" id="login" role="form" action="/login" method="POST">
+              <h3 class="form-signin-heading">Inicia Sesion</h3>
+              <a href="#" id="flipToRecover" class="flipLink">
+                <div id="triangle-topright"></div>
+              </a>
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="username" id="loginEmail" placeholder="Email address" required autofocus>
+              </div>
+              
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" id="loginPass" placeholder="Password" required>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block" >Entrar</button>
+          </form>
+    
+          <form class="form-signin" id="recover" role="form" action="/signup" method="post">
+              <h3 class="form-signin-heading">Registrate</h3>
+              <a href="#" id="flipToLogin" class="flipLink">
+                <div id="triangle-topleft"></div>
+              </a>
+          <div class="form-group">
+            <input required="required" type="text" name="username" placeholder="Tu nombre" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="text" name="lastname" placeholder="Apellido" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="email" name="email" placeholder="E-mail" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="password" name="password" placeholder="Password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="password" placeholder="Confirma el password" class="form-control"/>
+          </div>
+          <!-- <button type="submit" class="btn btn-warning btn-lg">Registrate!</button> -->
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Registrame!</button>
+          </form>
+        </div> <!-- /container -->
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap-dialog.min.js"></script>
+  <script src="/js/3dfuntionality.js"></script>
+  <script>
+    $(document).on('ready', main);
+    
+    function main() {
+      var socket = io.connect();
+
+      {% if message %}
+                BootstrapDialog.show({
+            title: 'Error',
+            message: {{ req.flash('message') }}
+        }).setType(BootstrapDialog.TYPE_DANGER);
+      {% endif %}
+
+      socket.on('connect', function() {
+        console.log("Conectado");
+        socket.emit('loggin', { username : "Freddier"});
+      });
+
+    }
+  </script>
+  </body>
+</html>

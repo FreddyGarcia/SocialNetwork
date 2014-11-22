@@ -1,0 +1,95 @@
+
+<html>
+  <head>
+    <title>Node Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/Login.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <style type="text/css">
+    .panel-heading {
+    padding: 5px 15px;
+}
+
+.panel-footer {
+  padding: 1px 15px;
+  color: #A0A0A0;
+}
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+    </style>
+  </head>
+</head>
+  <body>
+    <div class="container" id="formContainer">
+        <div class="panel-body">
+          <form class="form-signin" id="login" role="form" action="/login" method="POST">
+            <h3 class="form-signin-heading">Inicia Sesion</h3>
+            <a href="#" id="flipToRecover" class="flipLink">
+              <div id="triangle-topright"></div>
+            </a>
+            <div class="row">
+              <fieldset>
+                <div class="row">
+                  <div class="center-block">
+                    <img class="profile-img"
+                      src="img/photo.png" height="120" width="120" alt="">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-user"></i>
+                        </span> 
+                        <input class="form-control" placeholder="Username" name="loginname" type="text" autofocus>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+
+        <div class="row">
+          
+          <form class="form-signin" id="recover" role="form" action="/login">
+              <h3 class="form-signin-heading">Registrate</h3>
+              <a href="#" id="flipToLogin" class="flipLink">
+                <div id="triangle-topleft"></div>
+              </a>
+              <input type="email" class="form-control" name="loginEmail" id="loginEmail" placeholder="E-mail" required autofocus>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Registrame!</button>
+          </form>
+        </div>
+
+
+  
+      </div> <!-- /container -->
+
+  </body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/3dfuntionality.js"></script>
+</html>

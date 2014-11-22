@@ -1,0 +1,12 @@
+http://bootsnipp.com/snippets/featured/like-hangout-chat
+http://bootsnipp.com/snippets/featured/contact-list
+http://bootsnipp.com/snippets/featured/responsive-navigation-menu
+http://bootsnipp.com/snippets/featured/carousel-reviews-with-rating
+http://bootsnipp.com/snippets/featured/blockquote-box
+http://bootsnipp.com/snippets/featured/simple-user-profile
+http://bootsnipp.com/snippets/featured/single-column-timeline-dotted
+http://z43studio.com/2014/04/authentication/
+http://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
+https://www.npmjs.org/package/req-flash
+https://www.npmjs.org/package/bcrypt-nodejs
+https://stormpath.com/blog/build-app-nodejs-express-passport-stormpath/

@@ -1,0 +1,56 @@
+
+<html>
+  <head>
+    <title>Node Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="img/glyphicons-halflings-white.png">
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-4">
+        <h1>Registrate</h1>
+        <!--LOGIN FORM 
+        -->
+        <form action="/signup" method="post">
+          <div class="form-group">
+            <input required="required" type="text" name="username" placeholder="Tu nombre" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="text" name="lastname" placeholder="Apellido" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="email" name="email" placeholder="E-mail" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="password" name="password" placeholder="Password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input required="required" type="password" placeholder="Confirma el password" class="form-control"/>
+          </div>
+          <button type="submit" class="btn btn-warning btn-lg">Registrate!</button>
+        </form>
+        <hr/>
+        <p>Tienes una cuenta?<a href="/login">Has Login</a></p>
+        <p>Ve a la papassgina de inicio<a href="/">Inicio</a>.</p>
+      </div>
+    </div>
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/validaciones.js"></script>
+  <script>
+    $(document).on('ready', main);
+    
+    function main() {
+      var socket = io.connect();
+    
+      socket.on('connect', function() {
+        console.log("Conectado");
+        socket.emit('loggin', { username : "Freddier"});
+      })
+    }
+  </script>
+</html>
